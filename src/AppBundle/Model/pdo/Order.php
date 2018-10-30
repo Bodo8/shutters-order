@@ -126,6 +126,4 @@ class Order
         $description .= ", completed status " . $this->getCompletedStatus();
         return $description;
     }
-
-
 }

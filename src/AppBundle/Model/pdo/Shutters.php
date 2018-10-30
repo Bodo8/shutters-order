@@ -81,10 +81,4 @@ class Shutters
         $description .= "price: " . $this->getPrice() . ") ";
         return $description;
     }
-
-
 }
-
-$shutters = new Shutters("lamel", 20,
-    50, 30);
-echo $shutters;

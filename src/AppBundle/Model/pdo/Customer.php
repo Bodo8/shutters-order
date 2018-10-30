@@ -109,9 +109,3 @@ class Customer
     }
 
 }
-
-$custom = new Customer(1, new \DateTime()
-    , "Aga", "Akacjowa 15"
-    , "555 555", "mail@com");
-
-echo($custom);
