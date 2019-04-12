@@ -16,6 +16,7 @@ class Order
     private $date;
     private $customer;
     private $shutters;
+    private $quantity;
     private $amount;
     private $paymentStatus;
     private $completedStatus;
@@ -26,18 +27,20 @@ class Order
      * @param $date - date.
      * @param $customer - consumer data from the Consumer.class.
      * @param array $shutters -
+     * @param int $quantity -
      * @param $amount
      * @param $paymentStatus
      * @param $completedStatus
      */
     public function __construct(int $id, \DateTime $date, Customer $customer,
-                                array $shutters, float $amount,
+                                array $shutters, int $quantity, float $amount,
                                 string $paymentStatus, string $completedStatus)
     {
         $this->id = $id;
         $this->date = $date;
         $this->customer = $customer;
         $this->shutters = $shutters;
+        $this->quantity = $quantity;
         $this->amount = $amount;
         $this->paymentStatus = $paymentStatus;
         $this->completedStatus = $completedStatus;
@@ -83,6 +86,19 @@ class Order
         $this->shutters = $shutters;
     }
 
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+
     public function getAmount(): float
     {
         return $this->amount;
@@ -121,6 +137,7 @@ class Order
         foreach ($this->getShutters() as $key => $shutter) {
             $description .= ", shutters: " . $shutter;
         }
+        $description .= ", quantity: " . $this->getQuantity();
         $description .= ", amount: " . $this->getAmount();
         $description .= ", payment status: " . $this->getPaymentStatus();
         $description .= ", completed status " . $this->getCompletedStatus();

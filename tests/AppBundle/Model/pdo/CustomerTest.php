@@ -6,6 +6,8 @@
  * Time: 19:34
  */
 
+declare(strict_types=1);
+
 namespace AppBundle\Model\pdo;
 
 use PHPUnit\Framework\TestCase;
